@@ -15,12 +15,4 @@ class Resource(Base):
 
     availabilities = relationship("ResourceAvailability", back_populates="resource")
 
-class ResourceAvailability(Base):
-    __tablename__ = "resource_availability"
-
-    id = Column(Integer, primary_key=True, index=True)
-    resource_id = Column(Integer, ForeignKey("resources.id"), index=True)
-    date = Column(Date, index=True)  # Specific date for availability/unavailability
-    availability_type = Column(String)  # Available or Unavailable
-
-    resource = relationship("Resource", back_populates="availabilities")    
+ 
